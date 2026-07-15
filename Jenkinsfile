@@ -42,8 +42,8 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(
                     credentialsId: 'github',
-                    usernameVariable: 'GIT_USER',
-                    passwordVariable: 'GIT_TOKEN'
+                    usernameVariable: 'GITHUB_USER',
+                    passwordVariable: 'GITHUB_TOKEN'
                 )]) {
 
                     sh '''
@@ -54,7 +54,7 @@ pipeline {
 
                     git commit -m "Update image to v${BUILD_NUMBER}" || true
 
-                    git push https://${GIT_USER}:${GIT_TOKEN}@github.com/Gunal-Senthil/gunals-cicd.git HEAD:main
+                    git push https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/Gunal-Senthil/gunals-cicd.git HEAD:main
                     '''
                 }
             }
