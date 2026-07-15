@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: gunals-container
-        image: gunalsenthil/gunals:latest
+        image: gunalsenthil/gunals:v11
         imagePullPolicy: Always
 
         ports:
