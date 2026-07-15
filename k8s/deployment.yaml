@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gunals-app
+  labels:
+    app: gunals-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: gunals-app
+
+  template:
+    metadata:
+      labels:
+        app: gunals-app
+
+    spec:
+      containers:
+      - name: gunals-container
+        image: gunalsenthil/gunals:latest
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 80
